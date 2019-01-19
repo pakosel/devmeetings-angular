@@ -1,7 +1,18 @@
-Filtering: <input align="center" type="text" name="filter" [formControl]="myInput" >
+Filtering: <input type="text" [formControl]="myInput">
 <br><br>
-<div *ngFor="let product of products">
-  <div *ngIf="product.name.toLowerCase().includes(lastInput.toLowerCase())">
-    {{ product.name}}
-  </div>
-</div>
+<table border="1" cellpadding="5">
+  <thead>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Promotion</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <ng-container *ngIf="product.name.toLowerCase().includes(lastInput.toLowerCase())">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.isPromoted }}</td>
+    </ng-container>
+  </tr>
+  </tbody>
+</table>
