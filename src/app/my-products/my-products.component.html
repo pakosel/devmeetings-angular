@@ -1,2 +1,7 @@
-
-<div *ngFor="let product of products" style="text-align: center; font-size: 25px;">{{ product.name}}</div>
+Filtering: <input align="center" type="text" name="filter" [formControl]="myInput" >
+<br><br>
+<div *ngFor="let product of products">
+  <div *ngIf="product.name.toLowerCase().includes(lastInput.toLowerCase())">
+    {{ product.name}}
+  </div>
+</div>

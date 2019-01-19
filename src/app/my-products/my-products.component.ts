@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MyProdComponent} from '../my-prod/my-prod.component';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-my-products',
@@ -8,16 +9,25 @@ import {MyProdComponent} from '../my-prod/my-prod.component';
 })
 export class MyProductsComponent implements OnInit {
 
+  //public values: Array<string> = [];
+  public lastInput: string = '';
+
+  public myInput = new FormControl();
+
   public products: Array<MyProdComponent> = [
-    new MyProdComponent(1, 'Prod 1', true),
-    new MyProdComponent(2, 'Prod 2', false),
-    new MyProdComponent(3, 'Prod 3', true),
-    new MyProdComponent(4, 'Prod 4', false),
-    new MyProdComponent(5, 'Prod 5', true),
-    new MyProdComponent(6, 'Prod 6', false),
+    new MyProdComponent(1, 'Prod 1: mazda', true),
+    new MyProdComponent(2, 'Prod 2: Ford', false),
+    new MyProdComponent(3, 'Product: Audi', true),
+    new MyProdComponent(4, 'Combo: VW + AUDI', false),
+    new MyProdComponent(5, 'Mercedes', true),
+    new MyProdComponent(6, 'Car 11: BMW', false),
+    new MyProdComponent(7, 'VW', false),
   ];
 
-  constructor() { }
+  constructor() {
+    //this.myInput.valueChanges.subscribe(value => this.values.push(value));
+    this.myInput.valueChanges.subscribe(value => this.lastInput = value);
+  }
 
   ngOnInit() {
   }
