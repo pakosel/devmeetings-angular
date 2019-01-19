@@ -2,8 +2,8 @@ Filtering: <input type="text" [formControl]="myInput">
 <br><br>
 <table border="1" cellpadding="5">
   <thead>
-  <th>ID</th>
-  <th>Name</th>
+  <th>ID <button id="thID" #buttonID (click)="onClick(buttonID)">sort</button> </th>
+  <th>Name <button id="thName" #buttonName (click)="onClick(buttonName)">sort</button></th>
   <th>Promotion</th>
   </thead>
   <tbody>
