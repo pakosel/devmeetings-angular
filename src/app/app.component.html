@@ -7,12 +7,8 @@
 </div>
 
 <h2 style="text-align: center">All products</h2>
-<div *ngFor="let product of products" style="text-align: center; font-size: 25px;">{{ product.name}}</div>
-
-
-<h2 style="text-align: center; color: red">Promoted products</h2>
-<div *ngFor="let product of products" style="text-align: center; font-size: 25px; color: red">
-  <div *ngIf="product.isPromoted">{{product.name}}</div>
+<div>
+<app-my-products></app-my-products>
 </div>
 
 <router-outlet></router-outlet>
