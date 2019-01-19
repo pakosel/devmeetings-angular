@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MyProdComponent} from '../my-prod/my-prod.component';
 import {FormControl} from '@angular/forms';
+import {ProductsRepository} from '../products-repository';
 
 @Component({
   selector: 'app-my-products',
@@ -9,26 +10,18 @@ import {FormControl} from '@angular/forms';
 })
 export class MyProductsComponent implements OnInit {
 
-  //public values: Array<string> = [];
   public lastInput: string = '';
   public sortID: 'thID' | 'thName';
 
 
   public myInput = new FormControl();
 
-  private productsInt: Array<MyProdComponent> = [
-    new MyProdComponent(1, 'Prod 1: mazda', true),
-    new MyProdComponent(2, 'Prod 2: Ford', false),
-    new MyProdComponent(3, 'Product: Audi', true),
-    new MyProdComponent(4, 'Combo: VW + AUDI', false),
-    new MyProdComponent(5, 'Mercedes', true),
-    new MyProdComponent(6, 'Car 11: BMW', false),
-    new MyProdComponent(7, 'VW', false),
-  ];
-  public products: Array<MyProdComponent> = this.productsInt;
+  private productsInt: Array<MyProdComponent>;
+  public products: Array<MyProdComponent>;
 
-  constructor() {
-    //this.myInput.valueChanges.subscribe(value => this.values.push(value));
+  constructor(productsRepository: ProductsRepository) {
+    this.productsInt = productsRepository.getProducts();
+    this.products = this.productsInt;
     this.myInput.valueChanges.subscribe(value => this.lastInput = value);
   }
 

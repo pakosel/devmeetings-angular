@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MyProductsComponent } from './my-products/my-products.component';
 import { MyProdComponent } from './my-prod/my-prod.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ProductsRepository} from './products-repository';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ProductsRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
